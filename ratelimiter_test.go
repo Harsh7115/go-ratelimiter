@@ -69,7 +69,7 @@ func TestTokenBucket_Panic_BadCap(t *testing.T) {
 }
 
 func TestTokenBucket_Concurrent(t *testing.T) {
-	tb := rl.NewTokenBucket(100, 1e9)
+	tb := rl.NewTokenBucket(100, 1) // rate=1/s: no meaningful refill during concurrent test
 	var wg sync.WaitGroup
 	allowed := make(chan bool, 200)
 	for i := 0; i < 200; i++ {
@@ -130,7 +130,7 @@ func TestSlidingWindow_WindowSlides(t *testing.T) {
 	}
 }
 
-func TestSlidingWindow_Count(t *testing.T) {
+func TestSlidingWindow_Count(t *testing.T) 
 	sw := rl.NewSlidingWindow(10, time.Second)
 	sw.AllowN(4)
 	if c := sw.Count(); c != 4 {
@@ -225,7 +225,7 @@ func TestLeakyBucket_QueueDepth(t *testing.T) {
 }
 
 func TestLeakyBucket_Concurrent(t *testing.T) {
-	lb := rl.NewLeakyBucket(50, 1e9)
+	lb := rl.NewLeakyBucket(50, 1) // rate=1/s: no meaningful drain during concurrent test
 	var wg sync.WaitGroup
 	allowed := make(chan bool, 100)
 	for i := 0; i < 100; i++ {
