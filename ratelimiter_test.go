@@ -130,7 +130,7 @@ func TestSlidingWindow_WindowSlides(t *testing.T) {
 	}
 }
 
-func TestSlidingWindow_Count(t *testing.T) 
+func TestSlidingWindow_Count(t *testing.T) {
 	sw := rl.NewSlidingWindow(10, time.Second)
 	sw.AllowN(4)
 	if c := sw.Count(); c != 4 {
