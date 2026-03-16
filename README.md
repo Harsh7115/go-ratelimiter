@@ -1,5 +1,7 @@
 # go-ratelimiter
 
+[![CI](https://github.com/Harsh7115/go-ratelimiter/actions/workflows/ci.yml/badge.svg)](https://github.com/Harsh7115/go-ratelimiter/actions/workflows/ci.yml)
+
 Thread-safe rate limiters for Go — **Token Bucket**, **Sliding Window**, and **Leaky Bucket** — with zero external dependencies.
 
 ## Algorithms
